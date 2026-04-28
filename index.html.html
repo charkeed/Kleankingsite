@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Klean King</title>
+
+<style>
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0b1a2b;
+    color:white;
+}
+
+/* HEADER */
+header {
+    background:black;
+    text-align:center;
+    padding:15px;
+}
+header img {
+    max-width:200px;
+}
+.btn {
+    display:inline-block;
+    margin:10px;
+    padding:12px 25px;
+    background:gold;
+    color:black;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:5px;
+}
+
+/* HERO */
+.hero img {
+    width:100%;
+    max-height:500px;
+    object-fit:cover;
+}
+
+/* SECTIONS */
+.section {
+    padding:50px 20px;
+    text-align:center;
+}
+
+.services {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.card {
+    background:#132f4c;
+    margin:15px;
+    padding:20px;
+    width:260px;
+    border-radius:10px;
+}
+
+.card h3 {
+    color:gold;
+}
+
+.gallery img {
+    width:300px;
+    margin:10px;
+    border-radius:10px;
+}
+
+.about {
+    background:#09121f;
+}
+
+.contact {
+    background:black;
+}
+
+select, button {
+    padding:10px;
+    margin:10px;
+}
+
+/* FOOTER */
+footer {
+    background:#000;
+    padding:20px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="logo.png">
+<p>Clean Spaces. King Service.</p>
+<p>📞 912-282-9196 | Waycross, GA</p>
+<a class="btn" href="tel:9122829196">Call Now</a>
+<a class="btn" href="https://book.squareup.com/YOUR-LINK" target="_blank">Book Now</a>
+</header>
+
+<div class="hero">
+<img src="owner.png">
+</div>
+
+<div class="section">
+<h2>Our Services</h2>
+
+<div class="services">
+<div class="card">
+<h3>Residential Cleaning</h3>
+<p>Homes, apartments, deep cleaning</p>
+</div>
+
+<div class="card">
+<h3>Commercial Cleaning</h3>
+<p>Offices & business spaces</p>
+</div>
+
+<div class="card">
+<h3>Sanitation</h3>
+<p>Disinfection & deep cleaning</p>
+</div>
+</div>
+</div>
+
+<!-- QUOTE CALCULATOR -->
+<div class="section" style="background:#09121f;">
+<h2>Get Instant Quote</h2>
+
+<select id="size">
+  <option value="120">1–2 Bedroom ($120)</option>
+  <option value="160">3–4 Bedroom ($160)</option>
+  <option value="220">Large Home ($220)</option>
+</select>
+
+<select id="type">
+  <option value="0">Basic Clean</option>
+  <option value="100">Deep Clean (+$100)</option>
+  <option value="180">Move-In/Out (+$180)</option>
+</select><br>
+
+<input type="checkbox" value="40" class="addon"> Oven (+$40)
+<input type="checkbox" value="35" class="addon"> Fridge (+$35)
+<input type="checkbox" value="50" class="addon"> Baseboards (+$50)
+
+<br><br>
+
+<button onclick="calculateQuote()" class="btn">Calculate Price</button>
+
+<h3 id="total"></h3>
+
+<p>Final price may vary. Book now to secure your appointment.</p>
+
+<a class="btn" href="https://book.squareup.com/YOUR-LINK" target="_blank">
+Book Now
+</a>
+
+</div>
+
+<!-- GALLERY -->
+<div class="section gallery">
+  <h2>Our Work</h2>
+
+  <img src="./pricing.png"
+  <img src="./logo.png"
+  <img src="./owner.png"
+
+</div>
+
+<!-- ABOUT -->
+<div class="section about">
+<h2>About The Klean King</h2>
+<p>Owned by Charkeed Neloms, we provide reliable, high-quality cleaning services in Waycross, GA.</p>
+</div>
+
+<!-- CONTACT -->
+<div class="section contact">
+<h2>Book & Pay</h2>
+
+<a class="btn" href="https://book.squareup.com/YOUR-LINK" target="_blank">
+Book & Pay Deposit
+</a>
+
+</div>
+
+<footer>
+<p>© The Klean King | Waycross, GA</p>
+</footer>
+
+<script>
+function calculateQuote() {
+  let size = parseInt(document.getElementById("size").value);
+  let type = parseInt(document.getElementById("type").value);
+
+  let addons = document.querySelectorAll('.addon:checked');
+  let addonTotal = 0;
+
+  addons.forEach(item => {
+    addonTotal += parseInt(item.value);
+  });
+
+  let total = size + type + addonTotal;
+
+  document.getElementById("total").innerHTML = "Estimated Price: $" + total;
+}
+</script>
+
+</body>
+</html>
